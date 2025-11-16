@@ -1,0 +1,22 @@
+{
+  "name": "jtoon - JSON to TOON Converter",
+  "short_name": "jtoon",
+  "description": "Convert JSON to TOON format and reduce LLM tokens by 30-60%",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2563eb",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "/vite.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ],
+  "categories": [
+    "productivity",
+    "utilities",
+    "developer tools"
+  ]
+}

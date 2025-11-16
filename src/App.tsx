@@ -20,6 +20,14 @@ function App() {
   const [output, setOutput] = useState('')
   const [error, setError] = useState('')
 
+  // Update page title based on direction
+  useEffect(() => {
+    const title = direction === 'json-to-toon' 
+      ? 'JSON to TOON Converter - Free Online Tool'
+      : 'TOON to JSON Converter - Free Online Tool'
+    document.title = title
+  }, [direction])
+
   // Convert whenever input or options change
   useEffect(() => {
     if (!input.trim()) {
@@ -91,6 +99,40 @@ function App() {
           savings={savings}
         />
       )}
+      
+      {/* SEO Content (hidden but crawlable) */}
+      <div style={{ position: 'absolute', left: '-9999px', top: '-9999px' }} aria-hidden="true">
+        <h1>JSON to TOON Converter - Free Online Tool for Token Optimization</h1>
+        <p>
+          Convert JSON to TOON format online for free. TOON (Token-Oriented Object Notation) 
+          reduces LLM token usage by 30-60% compared to standard JSON. Perfect for ChatGPT, 
+          Claude, Google Gemini, and other AI language models.
+        </p>
+        <h2>Features</h2>
+        <ul>
+          <li>Free JSON to TOON converter with real-time results</li>
+          <li>TOON to JSON conversion support</li>
+          <li>Token estimation and savings calculator</li>
+          <li>Multiple delimiter options (comma, tab, pipe)</li>
+          <li>Key folding for nested data structures</li>
+          <li>No registration or sign-up required</li>
+        </ul>
+        <h2>Why Use TOON Format?</h2>
+        <p>
+          TOON format is specifically designed for Large Language Models (LLMs) and AI prompts. 
+          By reducing token count, you can save money on API calls, fit more data in context 
+          windows, and improve response times. TOON achieves this through efficient tabular 
+          representation of uniform arrays and minimal syntax overhead.
+        </p>
+        <h2>How to Convert JSON to TOON</h2>
+        <ol>
+          <li>Paste your JSON data into the input field</li>
+          <li>Select your preferred delimiter (comma, tab, or pipe)</li>
+          <li>Choose key folding options if needed</li>
+          <li>View the TOON output instantly</li>
+          <li>See token savings in real-time</li>
+        </ol>
+      </div>
     </div>
   )
 }

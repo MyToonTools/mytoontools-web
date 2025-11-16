@@ -1,7 +1,28 @@
 {
   "name": "jtoon",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "description": "Free online JSON to TOON converter - Reduce LLM tokens by 30-60%",
+  "keywords": [
+    "json",
+    "toon",
+    "converter",
+    "token-optimization",
+    "llm",
+    "ai",
+    "chatgpt",
+    "claude",
+    "openai",
+    "json-to-toon",
+    "toon-format",
+    "serialization"
+  ],
+  "author": "jtoon",
+  "homepage": "https://jtoon.app",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Santaval/jtoon"
+  },
   "type": "module",
   "scripts": {
     "dev": "vite",
