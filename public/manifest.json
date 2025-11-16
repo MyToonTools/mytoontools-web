@@ -1,6 +1,6 @@
 {
-  "name": "jtoon - JSON to TOON Converter",
-  "short_name": "jtoon",
+  "name": "ToonTools - JSON to TOON Converter",
+  "short_name": "ToonTools",
   "description": "Convert JSON to TOON format and reduce LLM tokens by 30-60%",
   "start_url": "/",
   "display": "standalone",
