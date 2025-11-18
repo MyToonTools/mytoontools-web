@@ -1,5 +1,5 @@
 import { Badge } from '@/components/ui/badge'
-import { Button } from '@/components/ui/button'
+// import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { ShimmerButton } from '@/components/ui/shimmer-button'
 import { AnimatedGradientText } from '@/components/ui/animated-gradient-text'
@@ -9,11 +9,11 @@ import { motion } from 'motion/react'
 import { 
   TrendingDown,
   Zap,
-  Shield,
-  Cpu,
+//   Shield,
+//   Cpu,
   Globe,
   BarChart3,
-  Code2,
+//   Code2,
   ArrowRight
 } from 'lucide-react'
 
@@ -21,7 +21,7 @@ const features = [
   {
     id: 'token-efficiency',
     title: 'Massive Token Savings',
-    description: 'Reduce LLM costs by up to 70% with our optimized TOON format. Perfect for large datasets and frequent API calls.',
+    description: 'Reduce LLM costs by up to 70% with our optimized TOON format.',
     icon: TrendingDown,
     stats: { value: 70, suffix: '%', label: 'Token Reduction' },
     color: 'from-green-500 to-emerald-500',
@@ -29,7 +29,7 @@ const features = [
   {
     id: 'lightning-fast',
     title: 'Lightning Fast Processing',
-    description: 'Convert massive datasets in seconds. Our optimized algorithms handle files up to 100MB instantly.',
+    description: 'Convert massive datasets in seconds.',
     icon: Zap,
     stats: { value: 99, suffix: '%', label: 'Faster Processing' },
     color: 'from-yellow-500 to-orange-500',
@@ -42,30 +42,30 @@ const features = [
     stats: { value: 15, suffix: '+', label: 'LLM Platforms' },
     color: 'from-blue-500 to-cyan-500',
   },
-  {
-    id: 'developer-friendly',
-    title: 'Developer-First API',
-    description: 'RESTful API with comprehensive documentation. SDKs available for Python, JavaScript, and more.',
-    icon: Code2,
-    stats: { value: 5, suffix: '+', label: 'Programming Languages' },
-    color: 'from-purple-500 to-violet-500',
-  },
-  {
-    id: 'enterprise-ready',
-    title: 'Enterprise Security',
-    description: 'SOC 2 compliant with end-to-end encryption. No data retention, complete privacy guaranteed.',
-    icon: Shield,
-    stats: { value: 100, suffix: '%', label: 'Data Privacy' },
-    color: 'from-red-500 to-pink-500',
-  },
-  {
-    id: 'real-time',
-    title: 'Real-time Conversion',
-    description: 'Stream large files with real-time progress. Handle gigabyte datasets without memory issues.',
-    icon: Cpu,
-    stats: { value: 1, suffix: 'GB+', label: 'File Support' },
-    color: 'from-indigo-500 to-purple-500',
-  },
+//   {
+//     id: 'developer-friendly',
+//     title: 'Developer-First API',
+//     description: 'RESTful API with comprehensive documentation. SDKs available for Python, JavaScript, and more.',
+//     icon: Code2,
+//     stats: { value: 5, suffix: '+', label: 'Programming Languages' },
+//     color: 'from-purple-500 to-violet-500',
+//   },
+//   {
+//     id: 'enterprise-ready',
+//     title: 'Enterprise Security',
+//     description: 'SOC 2 compliant with end-to-end encryption. No data retention, complete privacy guaranteed.',
+//     icon: Shield,
+//     stats: { value: 100, suffix: '%', label: 'Data Privacy' },
+//     color: 'from-red-500 to-pink-500',
+//   },
+//   {
+//     id: 'real-time',
+//     title: 'Real-time Conversion',
+//     description: 'Stream large files with real-time progress. Handle gigabyte datasets without memory issues.',
+//     icon: Cpu,
+//     stats: { value: 1, suffix: 'GB+', label: 'File Support' },
+//     color: 'from-indigo-500 to-purple-500',
+//   },
 ]
 
 export function FeaturesSection() {
@@ -116,7 +116,7 @@ export function FeaturesSection() {
           </div>
           <div className="text-center">
             <div className="text-3xl font-bold text-primary mb-2">
-              <NumberTicker value={15000} />+
+              <NumberTicker value={100} />+
             </div>
             <div className="text-sm text-muted-foreground">Developers</div>
           </div>
@@ -128,7 +128,7 @@ export function FeaturesSection() {
           </div>
           <div className="text-center">
             <div className="text-3xl font-bold text-primary mb-2">
-              <NumberTicker value={1} />B+
+              <NumberTicker value={1} />k+
             </div>
             <div className="text-sm text-muted-foreground">Tokens Saved</div>
           </div>
@@ -208,6 +208,7 @@ export function FeaturesSection() {
               borderRadius="8px"
               background="rgba(59, 130, 246, 1)"
               className="px-8 py-3 text-base font-semibold bg-linear-to-r from-blue-500 to-purple-500"
+              onClick={() => {window.location.href = '/json-to-toon'}}
             >
               <a href="/json-to-toon" className="flex items-center gap-2">
                 Try Free Converter
@@ -215,7 +216,7 @@ export function FeaturesSection() {
               </a>
             </ShimmerButton>
             
-            <Button 
+            {/* <Button 
               variant="outline" 
               size="lg" 
               asChild
@@ -225,7 +226,7 @@ export function FeaturesSection() {
                 View API Docs
                 <Code2 className="w-4 h-4" />
               </a>
-            </Button>
+            </Button> */}
           </div>
         </motion.div>
       </div>
