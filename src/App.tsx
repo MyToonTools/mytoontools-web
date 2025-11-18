@@ -3,7 +3,10 @@ import { encode, decode } from '@toon-format/toon'
 import { Header } from './components/Header'
 import { ConversionOptions, type Direction, type Delimiter } from './components/ConversionOptions'
 import { EditorPanel } from './components/EditorPanel'
+import { Analytics } from '@vercel/analytics/react'; 
+
 import { Stats } from './components/Stats'
+
 import './App.css'
 
 // Simple token estimator (approximation)
@@ -68,6 +71,7 @@ function App() {
 
   return (
     <div className="app">
+      <Analytics />
       <Header />
       <ConversionOptions
         direction={direction}
