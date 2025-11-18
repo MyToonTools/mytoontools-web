@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link, useLocation } from 'react-router-dom'
 import { motion } from 'motion/react'
 import { Menu, Github, Twitter } from 'lucide-react'
 import { Button } from '@/components/ui/button'
@@ -11,15 +12,16 @@ import {
 } from '@/components/ui/sheet'
 
 const navigation = [
-  { name: 'Home', href: '#home' },
-  { name: 'Features', href: '#features' },
-  { name: 'Converter', href: '#converter' },
-  { name: 'Examples', href: '#examples' },
-  { name: 'Documentation', href: '#docs' },
+  { name: 'Home', href: '/' },
+  { name: 'JSON Converter', href: '/json-to-toon' },
+  { name: 'Features', href: '/#features' },
+  { name: 'Examples', href: '/#examples' },
+  { name: 'Documentation', href: '/#docs' },
 ]
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
+  const location = useLocation()
 
   return (
     <motion.nav
@@ -36,30 +38,59 @@ export function Navbar() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-linear-to-br from-primary to-primary/80 text-primary-foreground font-bold text-sm">
-              J
-            </div>
-            <AnimatedShinyText className="text-xl font-bold tracking-tight">
-              JTOON
-            </AnimatedShinyText>
+            <Link to="/" className="flex items-center space-x-2">
+              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-linear-to-br from-primary to-primary/80 text-primary-foreground font-bold text-sm">
+                J
+              </div>
+              <AnimatedShinyText className="text-xl font-bold tracking-tight">
+                JTOON
+              </AnimatedShinyText>
+            </Link>
           </motion.div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-8">
-              {navigation.map((item, index) => (
-                <motion.a
-                  key={item.name}
-                  href={item.href}
-                  initial={{ opacity: 0, y: -20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="text-sm font-medium text-foreground/80 transition-colors hover:text-foreground relative group"
-                >
-                  {item.name}
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
-                </motion.a>
-              ))}
+              {navigation.map((item, index) => {
+                const isActive = item.href.startsWith('/#') 
+                  ? location.pathname === '/' && location.hash === item.href.substring(1)
+                  : location.pathname === item.href
+                
+                return (
+                  <motion.div
+                    key={item.name}
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                  >
+                    {item.href.startsWith('/#') ? (
+                      <a
+                        href={item.href}
+                        className={`text-sm font-medium transition-colors relative group ${
+                          isActive ? 'text-foreground' : 'text-foreground/80 hover:text-foreground'
+                        }`}
+                      >
+                        {item.name}
+                        <span className={`absolute -bottom-1 left-0 h-0.5 bg-primary transition-all duration-300 ${
+                          isActive ? 'w-full' : 'w-0 group-hover:w-full'
+                        }`} />
+                      </a>
+                    ) : (
+                      <Link
+                        to={item.href}
+                        className={`text-sm font-medium transition-colors relative group ${
+                          isActive ? 'text-foreground' : 'text-foreground/80 hover:text-foreground'
+                        }`}
+                      >
+                        {item.name}
+                        <span className={`absolute -bottom-1 left-0 h-0.5 bg-primary transition-all duration-300 ${
+                          isActive ? 'w-full' : 'w-0 group-hover:w-full'
+                        }`} />
+                      </Link>
+                    )}
+                  </motion.div>
+                )
+              })}
             </div>
           </div>
 
@@ -83,7 +114,9 @@ export function Navbar() {
               background="rgba(0, 0, 0, 1)"
               className="text-sm"
             >
-              Get Started
+              <Link to="/json-to-toon">
+                Get Started
+              </Link>
             </ShimmerButton>
           </div>
 
@@ -99,28 +132,55 @@ export function Navbar() {
               <SheetContent side="right" className="w-[300px] sm:w-[350px]">
                 <div className="flex flex-col space-y-6 pt-6">
                   {/* Mobile Logo */}
-                  <div className="flex items-center space-x-2 px-2">
+                  <Link to="/" className="flex items-center space-x-2 px-2" onClick={() => setIsOpen(false)}>
                     <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-linear-to-br from-primary to-primary/80 text-primary-foreground font-bold text-sm">
                       J
                     </div>
                     <span className="text-xl font-bold tracking-tight">JTOON</span>
-                  </div>
+                  </Link>
 
                   {/* Mobile Navigation */}
                   <div className="flex flex-col space-y-3">
-                    {navigation.map((item, index) => (
-                      <motion.a
-                        key={item.name}
-                        href={item.href}
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.3, delay: index * 0.1 }}
-                        className="block px-2 py-2 text-base font-medium text-foreground/80 transition-colors hover:text-foreground rounded-md hover:bg-accent"
-                        onClick={() => setIsOpen(false)}
-                      >
-                        {item.name}
-                      </motion.a>
-                    ))}
+                    {navigation.map((item, index) => {
+                      const isActive = item.href.startsWith('/#') 
+                        ? location.pathname === '/' && location.hash === item.href.substring(1)
+                        : location.pathname === item.href
+                      
+                      return (
+                        <motion.div
+                          key={item.name}
+                          initial={{ opacity: 0, x: -20 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ duration: 0.3, delay: index * 0.1 }}
+                        >
+                          {item.href.startsWith('/#') ? (
+                            <a
+                              href={item.href}
+                              className={`block px-2 py-2 text-base font-medium transition-colors rounded-md ${
+                                isActive 
+                                  ? 'text-foreground bg-accent' 
+                                  : 'text-foreground/80 hover:text-foreground hover:bg-accent'
+                              }`}
+                              onClick={() => setIsOpen(false)}
+                            >
+                              {item.name}
+                            </a>
+                          ) : (
+                            <Link
+                              to={item.href}
+                              className={`block px-2 py-2 text-base font-medium transition-colors rounded-md ${
+                                isActive 
+                                  ? 'text-foreground bg-accent' 
+                                  : 'text-foreground/80 hover:text-foreground hover:bg-accent'
+                              }`}
+                              onClick={() => setIsOpen(false)}
+                            >
+                              {item.name}
+                            </Link>
+                          )}
+                        </motion.div>
+                      )
+                    })}
                   </div>
 
                   {/* Mobile Social Links */}
@@ -147,7 +207,9 @@ export function Navbar() {
                       background="rgba(0, 0, 0, 1)"
                       className="w-full text-sm"
                     >
-                      Get Started
+                      <Link to="/json-to-toon" onClick={() => setIsOpen(false)}>
+                        Get Started
+                      </Link>
                     </ShimmerButton>
                   </div>
                 </div>

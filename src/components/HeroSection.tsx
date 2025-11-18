@@ -5,6 +5,7 @@ import { ShimmerButton } from '@/components/ui/shimmer-button'
 import { AnimatedGradientText } from '@/components/ui/animated-gradient-text'
 import { BorderBeam } from '@/components/ui/border-beam'
 import { motion } from 'motion/react'
+import { Link } from 'react-router-dom'
 import { 
   FileJson, 
   FileSpreadsheet, 
@@ -175,10 +176,17 @@ export function HeroSection() {
                     size="sm" 
                     className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300"
                   >
-                    <a href={tool.href}>
-                      Try Now
-                      <ArrowRight className="w-3 h-3 ml-1 group-hover:translate-x-1 transition-transform" />
-                    </a>
+                    {tool.id === 'json-to-toon' ? (
+                      <Link to={tool.href}>
+                        Try Now
+                        <ArrowRight className="w-3 h-3 ml-1 group-hover:translate-x-1 transition-transform" />
+                      </Link>
+                    ) : (
+                      <a href={tool.href}>
+                        Try Now
+                        <ArrowRight className="w-3 h-3 ml-1 group-hover:translate-x-1 transition-transform" />
+                      </a>
+                    )}
                   </Button>
                 </CardContent>
               </Card>
@@ -202,10 +210,10 @@ export function HeroSection() {
               background="rgba(59, 130, 246, 1)"
               className="px-8 py-3 text-base font-semibold bg-linear-to-r from-blue-500 to-purple-500"
             >
-              <a href="/json-to-toon" className="flex items-center gap-2">
+              <Link to="/json-to-toon" className="flex items-center gap-2">
                 Start Converting
                 <ArrowRight className="w-4 h-4" />
-              </a>
+              </Link>
             </ShimmerButton>
             
             <Button 
