@@ -1,12 +1,12 @@
 import { useState } from 'react'
-import { ConverterSelector } from './ConverterSelector'
+// import { ConverterSelector } from './ConverterSelector'
 import { ConverterControls } from './ConverterControls'
 import { ConverterStats } from './ConverterStats'
 import { ConverterEditor } from './ConverterEditor'
 import { ConverterTips } from './ConverterTips'
 import { ConversionService } from '@/services/conversionService'
 import { conversionConfigs } from '@/config/converters'
-import type { ConversionType, ConverterState } from '@/types/converter'
+import type {  ConverterState } from '@/types/converter'
 
 export function ConverterSection() {
   const [state, setState] = useState<ConverterState>({
@@ -19,19 +19,19 @@ export function ConverterSection() {
     copied: false
   })
 
-  const handleTypeChange = (type: ConversionType) => {
-    const config = conversionConfigs[type]
-    setState({
-      activeType: type,
-      input: config.exampleData,
-      output: '',
-      inputTokens: 0,
-      outputTokens: 0,
-      isConverting: false,
-      copied: false,
-      error: undefined
-    })
-  }
+//   const handleTypeChange = (type: ConversionType) => {
+//     const config = conversionConfigs[type]
+//     setState({
+//       activeType: type,
+//       input: config.exampleData,
+//       output: '',
+//       inputTokens: 0,
+//       outputTokens: 0,
+//       isConverting: false,
+//       copied: false,
+//       error: undefined
+//     })
+//   }
 
   const handleInputChange = (input: string) => {
     setState(prev => ({ 
@@ -122,10 +122,10 @@ export function ConverterSection() {
           </p>
         </header>
 
-        <ConverterSelector 
+        {/* <ConverterSelector 
           activeType={state.activeType}
           onTypeChange={handleTypeChange}
-        />
+        /> */}
 
         <ConverterControls
           activeType={state.activeType}

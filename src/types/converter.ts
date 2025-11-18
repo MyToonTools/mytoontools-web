@@ -1,6 +1,6 @@
 import type { LucideIcon } from 'lucide-react'
 
-export type ConversionType = 'json-to-toon' | 'csv-to-toon' | 'xml-to-toon' | 'yaml-to-toon'
+export type ConversionType = 'json-to-toon'
 
 export interface ConversionConfig {
   id: ConversionType
