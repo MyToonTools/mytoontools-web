@@ -6,4 +6,33 @@
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
+
+  <url>
+    <loc>https://mytoontools.com/json-to-toon</loc>
+    <lastmod>2025-11-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://mytoontools.com/csv-to-toon</loc>
+    <lastmod>2025-11-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+
+  <url>
+    <loc>https://mytoontools.com/xml-to-toon</loc>
+    <lastmod>2025-11-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://mytoontools.com/api</loc>
+    <lastmod>2025-11-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>
