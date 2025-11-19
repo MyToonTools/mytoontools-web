@@ -11,7 +11,7 @@ export function Footer() {
               <li><a href="#home" className="text-muted-foreground hover:text-foreground">Home</a></li>
               <li><a href="#features" className="text-muted-foreground hover:text-foreground">Features</a></li>
               <li><a href="#converter" className="text-muted-foreground hover:text-foreground">Converter</a></li>
-              <li><a href="https://github.com/Santaval/MyToonTools" className="text-muted-foreground hover:text-foreground" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+              <li><a href="https://github.com/MyToonTools" className="text-muted-foreground hover:text-foreground" target="_blank" rel="noopener noreferrer">GitHub</a></li>
             </ul>
           </nav>
         </div>

@@ -21,7 +21,7 @@
   "homepage": "https://jtoon.app",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Santaval/jtoon"
+    "url": "https://github.com/mytoontools"
   },
   "type": "module",
   "scripts": {
